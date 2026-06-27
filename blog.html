@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Ege Gür</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a; --white: #fafafa;
+      --gray-100: #f4f4f4; --gray-200: #e8e8e8;
+      --gray-400: #9a9a9a; --gray-600: #555555;
+      --font-sans: 'DM Sans', sans-serif;
+      --font-serif: 'DM Serif Display', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: var(--white); color: var(--black); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2.5rem; background: rgba(250,250,250,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); }
+    .nav-logo { font-family: var(--font-serif); font-size: 1.2rem; color: var(--black); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray-600); font-size: 0.875rem; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--black); }
+    .nav-cta { background: var(--black) !important; color: var(--white) !important; padding: 0.45rem 1.1rem; border-radius: 2rem; font-size: 0.8rem !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--black); }
+
+    .page-header { max-width: 900px; margin: 0 auto; padding: 9rem 2.5rem 3rem; border-bottom: 1px solid var(--gray-200); }
+    .page-eyebrow { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 1rem; }
+    .page-header h1 { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; }
+
+    .blog-container { max-width: 900px; margin: 0 auto; padding: 3rem 2.5rem 6rem; }
+    .blog-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 6rem 2rem; text-align: center; gap: 0.75rem; }
+    .blog-empty-icon { font-size: 1.8rem; color: var(--gray-200); margin-bottom: 0.25rem; }
+    .blog-empty h2 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400; }
+    .blog-empty p { font-size: 0.9rem; color: var(--gray-400); max-width: 360px; line-height: 1.6; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; color: var(--gray-400); font-size: 0.85rem; transition: color 0.2s; margin-top: 1rem; }
+    .back-link:hover { color: var(--black); }
+
+    footer { border-top: 1px solid var(--gray-200); padding: 2rem 2.5rem; display: flex; justify-content: space-between; max-width: 900px; margin: 0 auto; }
+    footer p { font-size: 0.8rem; color: var(--gray-400); }
+
+    @media (max-width: 680px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; flex-direction: column; gap: 0; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); padding: 5rem 2rem 2rem; z-index: 99; }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-bottom: 1px solid var(--gray-200); }
+      .nav-links a { display: block; padding: 1rem 0; font-size: 1.1rem; color: var(--black); }
+      .nav-cta { background: none !important; color: var(--black) !important; }
+      .hamburger { display: flex; z-index: 101; }
+      .page-header, .blog-container { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .page-header { padding-top: 7rem; }
+      footer { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Ege Gür</a>
+    <button class="hamburger" aria-label="Menüyü aç" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#hikaye">Hikaye</a></li>
+      <li><a href="index.html#projeler">Projeler</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="fotograflar.html">Fotoğraflar</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="index.html#iletisim" class="nav-cta">İletişim</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <p class="page-eyebrow">Blog</p>
+    <h1>Düşünceler & yazılar.</h1>
+  </div>
+
+  <div class="blog-container">
+    <div class="blog-empty">
+      <div class="blog-empty-icon">✦</div>
+      <h2>Yakında burada.</h2>
+      <p>Ürün yönetimi, girişimcilik ve dijital dönüşüm üzerine düşüncelerimi yakında paylaşmaya başlayacağım.</p>
+    </div>
+    <a href="index.html" class="back-link">← Ana sayfaya dön</a>
+  </div>
+
+  <footer>
+    <p>© 2024 Ege Gür.</p>
+    <p>egegur.org</p>
+  </footer>
+
+</body>
+</html>
