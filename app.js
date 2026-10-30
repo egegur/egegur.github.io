@@ -29,3 +29,19 @@ if(dialog){
   document.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
   dialog.addEventListener('click',e=>{const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
 }
+
+const lightbox=document.querySelector('.lightbox');
+if(lightbox){
+  const shots=[...document.querySelectorAll('.shot-open')];
+  const img=lightbox.querySelector('img'),cap=lightbox.querySelector('figcaption');
+  let current=0;
+  const show=i=>{current=(i+shots.length)%shots.length;const b=shots[current];img.src=b.dataset.full;img.alt=b.querySelector('img').alt;const fc=b.closest('figure').querySelector('figcaption');cap.textContent=fc.lastChild.textContent.trim()+'  ·  '+fc.querySelector('span').textContent.replace(/^\d+ · /,'');};
+  shots.forEach((b,i)=>b.addEventListener('click',()=>{show(i);lightbox.showModal();}));
+  lightbox.querySelector('.lb-close').addEventListener('click',()=>lightbox.close());
+  lightbox.querySelector('.lb-prev').addEventListener('click',()=>show(current-1));
+  lightbox.querySelector('.lb-next').addEventListener('click',()=>show(current+1));
+  lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close();});
+  lightbox.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(current-1);if(e.key==='ArrowRight')show(current+1);});
+  let x0=null;lightbox.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+  lightbox.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(current+(dx<0?1:-1));x0=null;});
+}
