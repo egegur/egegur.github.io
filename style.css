@@ -521,6 +521,23 @@ footer nav{order:3;width:100%;gap:18px}
 .post-side{display:flex;flex-direction:column;gap:14px}
 .post-issue{font-family:var(--display);font-size:clamp(40px,4vw,56px);font-weight:650;letter-spacing:-2.5px;line-height:.9}
 .post-card:first-child .post-issue{color:#6fa35e}
+.series-video{display:grid;grid-template-columns:minmax(200px,290px) 1fr;gap:6%;align-items:center;background:var(--ink);color:var(--paper);border-radius:14px;border-top-left-radius:60px;padding:34px 6% 34px 34px;margin:0 0 44px}
+.series-video video{display:block;width:100%;height:auto;aspect-ratio:9/16;border-radius:10px;background:#101820}
+.series-video .eyebrow{color:var(--accent);margin:0}
+.series-video h3{font-family:var(--display);font-size:clamp(30px,3.2vw,48px);font-weight:650;letter-spacing:-1.8px;line-height:1.08;margin:16px 0}
+.series-video-text>p:not(.eyebrow){font-size:14px;line-height:1.8;color:#c5d3d6;margin:0;max-width:440px}
+.video-transcript{margin-top:26px;border-top:1px solid #ffffff26;padding-top:18px;max-width:560px}
+.video-transcript summary{cursor:pointer;font-size:13px;font-weight:600;list-style:none;display:inline-flex;gap:10px;align-items:center}
+.video-transcript summary::-webkit-details-marker{display:none}
+.video-transcript summary:after{content:'+';color:var(--accent);font-size:18px;line-height:1}
+.video-transcript[open] summary:after{content:'−'}
+.video-transcript summary:focus-visible{outline:3px solid #b2753a;outline-offset:5px}
+.video-transcript ol{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:16px}
+.video-transcript li{display:grid;grid-template-columns:40px 1fr;gap:10px}
+.video-transcript li>span{font-family:var(--display);font-weight:700;font-size:13px;color:var(--accent);padding-top:2px}
+.video-transcript strong{display:block;font-size:14px;font-weight:600;line-height:1.5}
+.video-transcript li p{font-size:13px;line-height:1.7;color:#c5d3d6;margin:4px 0 0}
+.video-transcript .transcript-end{font-size:13px;line-height:1.7;margin:18px 0 0}
 
 @media(min-width:601px){.article-timeline li{grid-template-columns:120px 1fr;gap:22px}
 }
@@ -541,6 +558,8 @@ footer nav{order:3;width:100%;gap:18px}
 .series-intro{grid-template-columns:1fr;gap:14px;margin-bottom:26px}
 .post-side{flex-direction:row;align-items:baseline;gap:16px}
 .post-issue{font-size:38px}
+.series-video{grid-template-columns:1fr;gap:24px;padding:20px 20px 26px;border-top-left-radius:40px;margin-bottom:32px}
+.series-video video{max-width:300px;justify-self:center}
 }
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
